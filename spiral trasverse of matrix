@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+class solution 
+{
+vector<vector<int>> sortedMatrix(int N, vector<vector<int>> Mat) {
+        
+    vector<int> v;
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            v.push_back(Mat[i][j]);
+        }
+    }
+    sort(v.begin(),v.end());
+    int k=0;
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            Mat[i][j]=v[k++];
+        }
+    }
+    return Mat;
+
+    }        
+};
+int main(){
+    int r,c;
+    cin>>r>>c;
+    vector<vector<int>> matrix(r);
+    for(int i=0;i<r;i++){
+        matrix[i].assign(c,0);
+        for(int j=0;j<c;j++){
+            cin>>matrix[i][j];
+        }
+        }
+        solution ob;
+        vector<int> result=ob.spirallytraverse(matrix,r,c);
+        for(int i=0;i<result.size();i++){
+            cout<<result[i]<<endl;
+        }
+    return 0;
+}
